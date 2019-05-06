@@ -107,3 +107,37 @@ def str2int(s):
     return reduce(func, list(map(char2num, s)))
 print(str2int('123456'))
 print("*****************************************")
+
+def prod(L):
+    def MUL(x, y):
+        return x * y
+    return reduce(MUL, L)
+
+L = [1, 2, 3, 4, 5, 6]
+print(prod(L))
+#测试
+print('3 * 5 * 7 * 9 =', prod([3, 5, 7, 9]))
+if prod([3, 5, 7, 9]) == 945:
+    print('测试成功!')
+else:
+    print('测试失败!')
+print("*****************************************")
+
+def str2float(s):
+    def multiply(x, y):
+        return x * 10 + y
+    def division(x, y):
+        return x / 10 + y
+    def char2num(s):
+        DIGITS = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9}
+        return DIGITS[s]
+    dotIndex = s.index('.')
+    integer = reduce(multiply, list(map(char2num, s[:dotIndex])))
+    decimal = reduce(division, list(map(char2num, s[dotIndex + 1:]))[ : : -1]) / 10
+    return integer + decimal    
+print('str2float(\'123.456\') =', str2float('123.456'))
+if abs(str2float('123.456') - 123.456) < 0.00001:
+    print('测试成功!')
+else:
+    print('测试失败!')
+print("*****************************************")
