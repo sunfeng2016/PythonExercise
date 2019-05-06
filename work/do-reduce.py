@@ -82,3 +82,28 @@ def strtoint(s):
     dotIndex = s.index('.')
     return reduce(fninteger, map(chartonum, s[ : dotIndex])) + reduce(fndecimal, list(map(chartonum, s[dotIndex + 1 : ]))[ : : -1]) / 10
 print(strtoint('123.4567'))
+
+print("*****************************************")
+def add(x, y):
+    return x * y
+
+print(reduce(add, [1, 2, 3, 4, 5]))
+print("*****************************************")
+
+def listtoint(L):
+    def func(x, y):
+        return x * 10 + y
+    return (reduce(func, L))
+
+print(listtoint([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
+print("*****************************************")
+
+def str2int(s):
+    def func(x, y):
+        return x * 10 + y
+    def char2num(s):
+        DIGITS = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9}
+        return DIGITS[s]
+    return reduce(func, list(map(char2num, s)))
+print(str2int('123456'))
+print("*****************************************")

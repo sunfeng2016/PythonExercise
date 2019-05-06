@@ -41,3 +41,19 @@ L1 = ['adam', 'LISA', 'barT']
 L2 = list(map(normalize, L1))
 print(L2)
 print("************************************")
+
+def func(x):
+  	return x * x
+L = list(map(func, [1, 3, 5 , 7, 9]))
+print(L)
+print("************************************")
+
+#an practice of map
+def normalize(name):
+  	name = name[0].upper() + name[1:].lower()
+  	return name
+	
+L1 = ['adam', 'LISA', 'barT']
+L2 = list(map(normalize, L1))
+print(L2)
+print("************************************")
